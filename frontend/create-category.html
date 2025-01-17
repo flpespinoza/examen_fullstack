@@ -6,6 +6,9 @@
   <title>Inventarios - Crear categoría</title>
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+
+  <script src="js/api.js" defer></script>
+  <script src="js/category.js" defer></script>
 </head>
 <body class="min-h-screen antialiased">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,7 +20,7 @@
       <main class="flex flex-col flex-1 overflow-y-auto">
         <div class="max-w-2xl mx-auto w-full py-8">
           <a href="index.html" class="w-1/2 p-2 rounded-md text-blue-900 font-medium">&leftarrow; Volver a la lista de categorías</a>
-          <form class="bg-gray-50 border rounded-md px-8 pt-6 pb-8 mb-4 mt-4">
+          <form id="create-category-form" class="bg-gray-50 border rounded-md px-8 pt-6 pb-8 mb-4 mt-4">
             <div class="mb-6">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
                 Nombre de la categoría

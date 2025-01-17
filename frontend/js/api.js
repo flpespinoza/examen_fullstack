@@ -21,7 +21,7 @@ const Api = async(httpMethod, endpoint, data = null) =>{
   // Realizar la peticion
   try {
     const url = `${API_CONFIG.baseURL}/${endpoint}`;
-    if(httpMethod === 'GET' && data){
+    if(httpMethod !== 'GET' && data){
       requestOpts.body = JSON.stringify(data);
     }
     const response = await fetch(url, requestOpts);
