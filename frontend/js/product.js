@@ -38,6 +38,11 @@ document.getElementById("create-product-form").addEventListener("submit", async 
   const productStock = document.getElementById("product_stock").value;
   const categoryId = document.getElementById("category").value;
 
+  if(productStock < 0){
+    alert("El stock no puede ser menor a 0.");
+    return;
+  }
+
   const response = await Api('POST',`products`, { name: productName, stock: productStock, category_id: categoryId });
   if (response) {
       alert("Producto creado correctamente.");

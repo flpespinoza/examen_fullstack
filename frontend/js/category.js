@@ -5,6 +5,6 @@ document.getElementById("create-category-form").addEventListener("submit", async
 
   const response = await Api('POST',`categories`, { name: categoryName });
   if (response) {
-      alert("Categoría creada correctamente.");
+      document.getElementById("message_success").classList.remove("hidden");
   }
 });

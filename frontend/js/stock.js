@@ -25,9 +25,13 @@ document.getElementById("edit-stock-form").addEventListener("submit", async (e) 
   const productId = document.getElementById("product_id").value;
   const newStock = document.getElementById("product_stock").value;
 
+  if(newStock < 0){
+    alert("El stock no puede ser menor a 0.");
+    return;
+  }
+
   const response = await Api('PUT',`products/${productId}`, { stock: newStock });
   if (response) {
       alert("Stock actualizado correctamente.");
-      window.location.href = "index.html"; // Redirige a la página principal
   }
 });
