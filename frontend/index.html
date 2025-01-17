@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventarios</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+</head>
+<body class="min-h-screen antialiased">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col h-screen">
+      <header class="py-5 border-b border-gray-100">
+        <p class="font-medium sm:text-lg md:text-2xl">Manejo de Inventarios</p>
+      </header><!-- Cabecera de la pagina-->
+
+      <main class="flex flex-col flex-1 overflow-y-auto">
+        <div id="tools" class="flex flex-col space-y-3 md:flex-row md:items-center md:justify-between md:space-x-4 md:space-y-0 md:border-b md:border-gray-100 py-5 text-sm">
+          <input type="text" class="border leading-loose rounded-md placeholder-gray-400 border-gray-300 focus:outline-none focus:shadow-outline px-2 py-1 w-full md:w-1/2" placeholder="Buscar producto...">
+          <div class="flex items-center space-x-2 md:w-1/2 lg:w-1/3">
+            <a href="create-category.html" class="w-1/2 p-2 bg-blue-100 hover:bg-blue-200 rounded-md text-blue-900 font-medium">&#10010; Agregar categoria</a>
+            <a href="create-product.html" class="w-1/2 p-2 bg-green-100 hover:bg-green-200 rounded-md text-green-900 font-medium">&#10010; Agregar producto</a>
+          </div>
+        </div><!-- Herramientas[search, addCategory, addProduct] -->
+
+        <div class="relative overflow-x-auto mt-4">
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+              <thead class="text-xs text-gray-700 bg-gray-100 md:text-base">
+                  <tr>
+                      <th scope="col" class="px-6 py-3">
+                          Producto
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Stock
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Categoria
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          &nbsp;
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr class="bg-white border-b">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                          Apple MacBook Pro 17"
+                      </th>
+                      <td class="px-6 py-4">
+                          Silver
+                      </td>
+                      <td class="px-6 py-4">
+                          Laptop
+                      </td>
+                      <td class="px-6 py-4 text-right">
+                        <div class="flex items-center space-x-3 justify-end">
+                          <a href="#" aria-label="Editar stock" alt="Editar stock">&#9998;</a>
+                          <a href="#" aria-label="Eliminar producto">&#10006;</a>
+                        </div>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+        </div><!-- Tabla de productos-->
+      </main>
+      
+    </div>
+  </div>
+</body>
+</html>

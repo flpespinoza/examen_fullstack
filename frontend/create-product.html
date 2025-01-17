@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventarios - Crear categoría</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+</head>
+<body class="min-h-screen antialiased">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col h-screen">
+      <header class="py-5 border-b border-gray-100">
+        <p class="font-medium sm:text-lg md:text-2xl">Manejo de Inventarios - Crear producto</p>
+      </header>
+
+      <main class="flex flex-col flex-1 overflow-y-auto">
+        <div class="max-w-2xl mx-auto w-full py-8">
+          <a href="index.html" class="w-1/2 p-2 rounded-md text-blue-900 font-medium">&leftarrow; Volver a la lista de categorías</a>
+          <form class="bg-gray-50 border rounded-md px-8 pt-6 pb-8 mb-4 mt-4">
+            <div class="mb-3">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="product_name">
+                Nombre del producto
+              </label>
+              <input 
+                type="text" 
+                id="product_name" 
+                name="product_name" 
+                class="border w-full rounded-md px-3 py-2 placeholder-gray-400 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Ej: Magic Mouse 2, Camisa hombre..."
+                required
+              >
+            </div>
+
+            <div class="mb-3">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="product_stock">
+                Stock
+              </label>
+              <input 
+                type="number" 
+                id="product_stock" 
+                name="product_stock" 
+                class="border w-full rounded-md px-3 py-2 placeholder-gray-400 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Ej: 100..."
+                required
+              >
+            </div>
+
+            <div class="mb-3">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
+                Categoría
+              </label>
+              <select 
+                id="category" 
+                name="category"
+                class="border w-full rounded-md px-3 py-2 placeholder-gray-400 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="">Seleccione una categoría</option>
+                <option value="1">Electrónicos</option>
+                <option value="2">└── Smartphones</option>
+                <option value="3">└── Computadoras</option>
+                <option value="4">Ropa</option>
+                <option value="5">└── Camisetas</option>
+                <option value="6">└── Pantalones</option>
+                <option value="7">Alimentos</option>
+                <option value="8">└── Frescos</option>
+                <option value="9">└── Congelados</option>
+              </select>
+            </div>
+
+
+            <div class="flex items-center space-x-4">
+              <button 
+                type="submit" 
+                class="p-2 bg-blue-100 hover:bg-blue-200 rounded-md text-blue-900 font-medium"
+              >
+                Crear producto
+              </button>
+              <a 
+                href="#" 
+                class="text-gray-500 hover:text-gray-700 font-medium"
+              >
+                Cancelar
+              </a>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
