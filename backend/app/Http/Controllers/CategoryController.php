@@ -16,7 +16,10 @@ class CategoryController extends Controller
     public function index(Request $request): JsonResponse
     {
         $categories = Category::get();
-        return response()->json(new CategoryCollection($categories));
+        return response()->json([
+            'data' => new CategoryCollection($categories),
+            'success' => true,
+        ]);
     }
 
     /**

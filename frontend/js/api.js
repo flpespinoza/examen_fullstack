@@ -33,6 +33,6 @@ const Api = async(httpMethod, endpoint, data = null) =>{
     const responseData = await response.json();
     return responseData
   } catch (error) {
-      console.error(error);
+      alert(error);
   }
 }
