@@ -29,7 +29,7 @@ class CategoryControllerTest extends TestCase
     public function it_can_create_a_category()
     {
         $data = [
-            'name' => 'New Category',
+            'name' => 'New Category '  . rand(100, 1000),
         ];
 
         $response = $this->postJson('/api/categories', $data);

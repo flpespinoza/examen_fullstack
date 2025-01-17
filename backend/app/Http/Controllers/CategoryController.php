@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CategoryCollection;
+use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -14,7 +16,7 @@ class CategoryController extends Controller
     public function index(Request $request): JsonResponse
     {
         $categories = Category::get();
-        return response()->json($categories);
+        return response()->json(new CategoryCollection($categories));
     }
 
     /**
@@ -27,7 +29,7 @@ class CategoryController extends Controller
         ]);
 
         $category = Category::create($data);
-        return response()->json($category, 201);
+        return response()->json(new CategoryResource($category), 201);
     }
 
     /**
@@ -35,7 +37,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category): JsonResponse
     {
-        return response()->json($category);
+        return response()->json(new CategoryResource($category));
     }
 
     /**
@@ -48,7 +50,7 @@ class CategoryController extends Controller
         ]);
 
         $category->update($data);
-        return response()->json($category);
+        return response()->json(new CategoryResource($category));
     }
 
     /**
