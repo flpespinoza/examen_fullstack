@@ -17,9 +17,6 @@ return new class extends Migration
             $table->integer('stock')->default(0);
             $table->foreignId('category_id')->constrained()->onDelete('restrict');
             $table->timestamps();
-
-            //Agregar validacion de stock >= 0
-            $table->where('stock', '>=', 0);
         });
     }
 
