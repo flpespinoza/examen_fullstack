@@ -1,11 +1,17 @@
 // Listener para cuando se cargue la página
 document.addEventListener('DOMContentLoaded', async() => {
+  // Cargar productos al iniciar
+  await loadProducts();
+});
+
+// Función para cargar y mostrar los productos
+const loadProducts = async () => {
   const productTableBody = document.querySelector('table tbody');
   
   // Función para mostrar un producto en la tabla
   const renderProduct = (product) => {
     return `
-      <tr class="bg-white border-b hover:bg-gray-50">
+      <tr id="row-${product.id} class="bg-white border-b hover:bg-gray-50">
         <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
           ${product.name}
         </th>
@@ -42,32 +48,41 @@ document.addEventListener('DOMContentLoaded', async() => {
     `;
   };
 
-  // Función para cargar y mostrar los productos
-  const loadProducts = async () => {
-    try {
-      // Obtener productos de la API
-      const response = await Api('GET', 'products');
-      if (response.success && response.data) {
-        // Si hay productos, renderizarlos
-        if (response.data.length > 0) 
-        {
-          const productsHtml = response.data.map(product => renderProduct(product)).join('');
-          productTableBody.innerHTML = productsHtml;
-        } 
-        else {
-          // Si no hay productos, mostrar mensaje
-          productTableBody.innerHTML = renderEmptyOrError('No hay productos disponibles');
-        }
+  try {
+    // Obtener productos de la API
+    const response = await Api('GET', 'products');
+    if (response.success && response.data) {
+      // Si hay productos, renderizarlos
+      if (response.data.length > 0) 
+      {
+        const productsHtml = response.data.map(product => renderProduct(product)).join('');
+        productTableBody.innerHTML = productsHtml;
       } 
       else {
-        productTableBody.innerHTML = renderEmptyOrError('Error al cargar los productos');
+        // Si no hay productos, mostrar mensaje
+        productTableBody.innerHTML = renderEmptyOrError('No hay productos disponibles');
       }
-    } catch (error) {
-      console.error('Error:', error);
+    } 
+    else {
       productTableBody.innerHTML = renderEmptyOrError('Error al cargar los productos');
     }
-  };
+  } catch (error) {
+    console.error('Error:', error);
+    productTableBody.innerHTML = renderEmptyOrError('Error al cargar los productos');
+  }
+};
 
-  // Cargar productos al iniciar
-  await loadProducts();
-});
+const deleteProduct = async(productId) => {
+  try {
+    // Mostrar ventana de confirmación
+    const confirmation = confirm('¿Estás seguro de que deseas eliminar este producto?');
+    if (!confirmation) {
+      return; // Cancelar la operación
+    }
+
+    // Eliminar producto
+    await Api('DELETE', `products/${productId}`);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
