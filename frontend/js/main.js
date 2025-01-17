@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async() => {
         </td>
         <td class="px-6 py-4 text-right">
           <div class="flex items-center space-x-3 justify-end">
-            <a href="#" class="hover:text-blue-600" 
+            <a href="edit-product.html?id=${product.id}"
                data-product-id="${product.id}"
                onclick="editProduct(${product.id})"
                aria-label="Editar stock">&#9998;</a>

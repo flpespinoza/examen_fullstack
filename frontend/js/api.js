@@ -11,7 +11,7 @@ const API_CONFIG = {
  * @param {string} endpoint
  * @param {object} data
  */
-const Api = async(httpMethod = 'GET', endpoint, data = null) =>{
+const Api = async(httpMethod, endpoint, data = null) =>{
   // Configurar el request
   const requestOpts = {
     method: httpMethod.toUpperCase(),
