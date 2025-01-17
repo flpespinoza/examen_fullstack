@@ -16,7 +16,10 @@ class ProductController extends Controller
     public function index(): JsonResponse
     {
         $products = Product::with('category')->get();
-        return response()->json(new ProductCollection($products));
+        return response()->json([
+            'data' => new ProductCollection($products),
+            'success' => true,
+        ]);
     }
 
     /**
@@ -31,7 +34,10 @@ class ProductController extends Controller
         ]);
 
         $product = Product::create($data);
-        return response()->json(new ProductResource($product), 201);
+        return response()->json([
+            'data' => new ProductResource($product),
+            'success' => true,
+        ], 201);
     }
 
     /**
